@@ -1,11 +1,19 @@
 public class Book {
     private int id;
     private String name;
+    private String author;
     private boolean isAvailable;
 
     Book(int id, String name) {
         this.id = id;
         this.name = name;
+        this.author = "Unknown";
+        this.isAvailable = true;
+    }
+    Book(int id, String name, String author) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
         this.isAvailable = true;
     }
 

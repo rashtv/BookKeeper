@@ -8,6 +8,11 @@ public class Order {
     private Date date;
 
     Order(int id, Book borrowedBook, Client borrower) {
+        if (!borrowedBook.isAvailable()) {
+            System.out.println("The book is currently unavailable.");
+            return;
+        }
+
         this.id = id;
         this.borrowedBook = borrowedBook;
         this.borrower = borrower;

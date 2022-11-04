@@ -5,12 +5,16 @@ public class Library {
     private String name;
     private ArrayList<Book> books;
     private ArrayList<Client> clientBase;
+    private ArrayList<Order> orderList;
+    private String location;
 
-    Library(int id, String name) {
+    Library(int id, String name, String location) {
         this.id = id;
         this.name = name;
         this.books = new ArrayList<>();
         this.clientBase = new ArrayList<>();
+        this.orderList = new ArrayList<>();
+        this.location = location;
     }
 
     void addBook(Book book) {
@@ -19,6 +23,14 @@ public class Library {
 
     void removeBook(Book book) {
         this.books.remove(book);
+    }
+
+    void registerClient(Client client) {
+        this.clientBase.add(client);
+    }
+
+    void unregisterClient(Client client) {
+        this.clientBase.remove(client);
     }
 
     int getNumberOfBooks() {
@@ -59,5 +71,21 @@ public class Library {
 
     ArrayList<Client> getClientBase() {
         return this.clientBase;
+    }
+
+    void setOrderList(ArrayList<Order> orderList) {
+        this.orderList = orderList;
+    }
+
+    ArrayList<Order> getOrderList() {
+        return this.orderList;
+    }
+
+    void setLocation(String location) {
+        this.location = location;
+    }
+
+    String getLocation() {
+        return this.location;
     }
 }
