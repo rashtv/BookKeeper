@@ -7,6 +7,10 @@ public class Client {
         this.name = name;
     }
 
+//    Order makeOrder() {
+//        return new Order();
+//    }
+
     int getId() {
         return this.id;
     }

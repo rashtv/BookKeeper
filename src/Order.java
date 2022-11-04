@@ -1,14 +1,18 @@
+import java.util.Date;
+
 public class Order {
     private int id;
     private Book borrowedBook;
     private Client borrower;
     private boolean isClosed;
+    private Date date;
 
     Order(int id, Book borrowedBook, Client borrower) {
         this.id = id;
         this.borrowedBook = borrowedBook;
         this.borrower = borrower;
         this.isClosed = false;
+        this.date = new Date();
 
         this.borrowedBook.setUnavailable();
     }
@@ -52,5 +56,13 @@ public class Order {
 
     boolean isClosed() {
         return this.isClosed;
+    }
+
+    void setDate(Date date) {
+        this.date = date;
+    }
+
+    Date getDate() {
+        return this.date;
     }
 }
