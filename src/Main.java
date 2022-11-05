@@ -8,7 +8,7 @@ public class Main {
 
         library.addBook(book);
         if(client.checkBook("BookName", library)) {
-            client.makeOrder(book, library);
+            client.makeOrder(book.getName(), library);
         }
 
         client.returnBook(book.getName(), library);
@@ -109,8 +109,10 @@ public class Main {
         book0.setId(Integer.MAX_VALUE);
         book0.setId(0);
         System.out.println(book0.getId());
+        book0.setName("Unknown");
         book0.setName("Nameless");
         System.out.println(book0.getName());
+        book0.setAuthor("Unknown");
         book0.setAuthor("Anonymous");
         System.out.println(book0.getAuthor());
     }
