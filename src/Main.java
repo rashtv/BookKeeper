@@ -19,7 +19,8 @@ public class Main {
         Library library = new Library(0, "National Library", "Some Location");
 
         // Clients Initialization
-        Client client1 = new Client(1, "Ilyas", "+010-5826-9410");
+        Client client0 = new Client(0, "", "");
+        Client client1 = new Client(1, "Ilyas");
         Client client2 = new Client(2, "John");
         Client client3 = new Client(3, "Simon");
 
@@ -43,7 +44,6 @@ public class Main {
 
         // Check
 
-
         library.addBook(book0);
         library.addBook(book1);
         library.addBook(book2);
@@ -52,6 +52,7 @@ public class Main {
         library.addBook(book5);
         library.addBook(book6);
         library.addBook(book7);
+        library.removeBook(book0);
 
         library.getOrderList().add(order1);
         library.getOrderList().add(order2);
@@ -60,9 +61,11 @@ public class Main {
         library.getOrderList().add(order5);
         library.getOrderList().add(order6);
 
+        library.registerClient(client0);
         library.registerClient(client1);
         library.registerClient(client2);
         library.registerClient(client3);
+        library.unregisterClient(client0);
 
         ArrayList<Book> books = library.getBooks();
         for (int i = 0; i < library.getNumberOfBooks(); i++) {
