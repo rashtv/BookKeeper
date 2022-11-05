@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Client {
     private int id;
     private String name;
@@ -15,13 +17,42 @@ public class Client {
         this.phoneNumber = phoneNumber;
     }
 
-    Order makeOrder(Book book, Library library) {
-        return new Order(library.getOrderList().size() + 1, book, this);
+    boolean checkBook(String bookName, Library library) {
+        ArrayList<Book> books = library.getBooks();
+        for(Book book : books) {
+            if (book.getName().equals(bookName)) return true;
+        }
+        return false;
     }
 
-    void returnBook(Order order) {
-        order.closeOrder();
-        order.getBorrowedBook().setAvailable();
+    Client checkBorrower(String bookName, Library library) {
+        if (!checkBook(bookName, library)) {
+            System.out.println("There is no such book in library!");
+            return null;
+        }
+        ArrayList<Order> orders = library.getOrderList();
+        for (Order order : orders) {
+            if (order.getBorrowedBook().getName().equals(bookName)) {
+                return order.getBorrower();
+            }
+        }
+        return null;
+    }
+
+    void makeOrder(Book book, Library library) {
+        library.getOrderList().add(new Order(library.getOrderList().size() + 1, book, this));
+        System.out.println("The book has been received!");
+    }
+
+    void returnBook(String bookName, Library library) {
+        ArrayList<Order> orders = library.getOrderList();
+        for (Order order : orders) {
+            if (order.getBorrowedBook().getName().equals(bookName)) {
+                order.closeOrder();
+                System.out.println("The book has been returned! The order has been closed!");
+                return;
+            }
+        }
     }
 
     //

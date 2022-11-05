@@ -33,8 +33,16 @@ public class Book {
         return this.name;
     }
 
-    void setName() {
+    void setName(String name) {
         this.name = name;
+    }
+
+    String getAuthor() {
+        return this.author;
+    }
+
+    void setAuthor(String author) {
+        this.author = author;
     }
 
     boolean isAvailable() {
