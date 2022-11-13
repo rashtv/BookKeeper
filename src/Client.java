@@ -61,7 +61,7 @@ public class Client {
     void returnBook(String bookName, Library library) {
         ArrayList<Order> orders = library.getOrderList();
         for (Order order : orders) {
-            if (order.getBorrowedBook().getName().equals(bookName)) {
+            if (order.getBorrowedBook().getName().equals(bookName) && !order.isClosed()) {
                 order.closeOrder();
                 System.out.println("The book has been returned!");
                 System.out.println("The order has been closed!");
@@ -69,6 +69,7 @@ public class Client {
                 return;
             }
         }
+        System.out.println("Unpredicted error in the process of the return of the book...");
     }
 
     //
