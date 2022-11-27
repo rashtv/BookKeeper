@@ -43,7 +43,7 @@ public class Client {
     void makeOrder(String bookName, Library library) {
         ArrayList<Book> books = library.getBooks();
         for(Book book : books) {
-            if (book.getName().equals(bookName)) {
+            if (book.getName().equals(bookName) && book.isAvailable()) {
                 library.getOrderList().add(new Order(library.getOrderList().size() + 1, book, this));
                 System.out.println("The book has been received!");
                 System.out.println("The order has been created");
