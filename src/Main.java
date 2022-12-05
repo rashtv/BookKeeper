@@ -75,9 +75,8 @@ public class Main {
                     }
                     case 8 -> {
                         System.out.println("Current user information:");
-                        System.out.println("ID: " + currentClient.getId());
-                        System.out.println("Name: " + currentClient.getName());
-                        System.out.println("Phone Number: " + currentClient.getPhoneNumber());
+                        currentClient.printInfo();
+                        System.out.println();
                     }
 
                     case 9 -> {

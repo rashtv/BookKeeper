@@ -77,6 +77,12 @@ public class Client {
         System.out.println("Unpredicted error in the process of the return of the book...");
     }
 
+    void printInfo() {
+        System.out.println("ID: " + this.getId());
+        System.out.println("Name: " + this.getName());
+        System.out.println("Phone Number: " + this.getPhoneNumber());
+    }
+
     //
     // getters & setters
     //
