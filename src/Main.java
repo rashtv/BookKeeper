@@ -17,6 +17,7 @@ public class Main {
             System.out.println("-- enter '4' to return a book.");
             System.out.println("-- enter '5' to get list of books in the library.");
             System.out.println("-- enter '6' to get list of clients in the library.");
+            System.out.println("-- enter '8' to get information about current user-client.");
             System.out.println("-- enter '9' to change user-client.");
             int k;
             try {
@@ -72,6 +73,13 @@ public class Main {
                         }
                         System.out.println();
                     }
+                    case 8 -> {
+                        System.out.println("Current user information:");
+                        System.out.println("ID: " + currentClient.getId());
+                        System.out.println("Name: " + currentClient.getName());
+                        System.out.println("Phone Number: " + currentClient.getPhoneNumber());
+                    }
+
                     case 9 -> {
                         System.out.println("Enter the name of the user-client to change:");
                         String name = scanner.next();
