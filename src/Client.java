@@ -27,8 +27,6 @@ public class Client {
 
     Client checkBorrower(String bookName, Library library) {
         if (!checkBook(bookName, library)) {
-            System.out.println("There is no such book in library!");
-            System.out.println();
             return null;
         }
         ArrayList<Order> orders = library.getOrderList();
@@ -48,7 +46,6 @@ public class Client {
                     library.getOrderList().add(new Order(library.getOrderList().size() + 1, book, this));
                     System.out.println("The book has been received!");
                     System.out.println("The order has been created");
-                    System.out.println();
                     return;
                 } else {
                     for (Order order : library.getOrderList()) {
@@ -65,7 +62,6 @@ public class Client {
         }
         System.out.println("The book has not been found in the library!");
         System.out.println("The order has not been created!");
-        System.out.println();
     }
 
     void returnBook(String bookName, Library library) {
@@ -75,7 +71,6 @@ public class Client {
                 order.closeOrder();
                 System.out.println("The book has been returned!");
                 System.out.println("The order has been closed!");
-                System.out.println();
                 return;
             }
         }
