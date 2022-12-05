@@ -1,13 +1,13 @@
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Library library = new Library(0, "National Library", "");
+        Library library = new Library(0, "National Library", "201 Banpo-daero, Seocho-gu, Seoul");
         Client defaultClient = new Client(0, "Default", "+010-0000-0000");
         Client currentClient = defaultClient;
+        library.registerClient(defaultClient);
 
         while(true) {
             System.out.println("What would you like to do?");
@@ -16,7 +16,8 @@ public class Main {
             System.out.println("-- enter '2' to add new book.");
             System.out.println("-- enter '3' to order a book.");
             System.out.println("-- enter '4' to return a book.");
-            System.out.println("-- enter '5' to get full library information.");
+            System.out.println("-- enter '5' to get list of books in the library.");
+            System.out.println("-- enter '6' to get list of clients in the library.");
             System.out.println("-- enter '9' to change user-client.");
             int k;
             try {
@@ -59,14 +60,16 @@ public class Main {
                         System.out.println();
                     }
                     case 5 -> {
-                        System.out.println("Clients:");
-                        for (Client client : library.getClientBase()) {
-                            System.out.println(client.getId() + " : " + client.getName() + " : " + client.getPhoneNumber());
-                        }
-                        System.out.println();
                         System.out.println("Books:");
                         for (Book book : library.getBooks()) {
                             System.out.println(book.getId() + " : " + book.getName() + " : " + book.getAuthor());
+                        }
+                        System.out.println();
+                    }
+                    case 6 -> {
+                        System.out.println("Clients:");
+                        for (Client client : library.getClientBase()) {
+                            System.out.println(client.getId() + " : " + client.getName() + " : " + client.getPhoneNumber());
                         }
                         System.out.println();
                     }

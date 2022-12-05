@@ -43,19 +43,29 @@ public class Client {
     void makeOrder(String bookName, Library library) {
         ArrayList<Book> books = library.getBooks();
         for(Book book : books) {
-            if (book.getName().equals(bookName) && book.isAvailable()) {
-                library.getOrderList().add(new Order(library.getOrderList().size() + 1, book, this));
-                System.out.println("The book has been received!");
-                System.out.println("The order has been created");
-                System.out.println();
-                return;
-            } else {
-                System.out.println("The book has not been found in the library!");
-                System.out.println("The order has not been created!");
-                System.out.println();
+            if (book.getName().equals(bookName)) {
+                if (book.isAvailable()) {
+                    library.getOrderList().add(new Order(library.getOrderList().size() + 1, book, this));
+                    System.out.println("The book has been received!");
+                    System.out.println("The order has been created");
+                    System.out.println();
+                    return;
+                } else {
+                    for (Order order : library.getOrderList()) {
+                        if (order.getBorrowedBook().equals(book)) {
+                            System.out.println("The book is currently unavailable.");
+                            System.out.println("To get the book, please contact this person.");
+                            System.out.println("Name: " + order.getBorrower().getName());
+                            System.out.println("Phone Number: " + order.getBorrower().getPhoneNumber());
+                            return;
+                        }
+                    }
+                }
             }
         }
-
+        System.out.println("The book has not been found in the library!");
+        System.out.println("The order has not been created!");
+        System.out.println();
     }
 
     void returnBook(String bookName, Library library) {
