@@ -17,11 +17,12 @@ public class Main {
             System.out.println("-- enter '4' to return a book.");
             System.out.println("-- enter '5' to get list of books in the library.");
             System.out.println("-- enter '6' to get list of clients in the library.");
+            System.out.println("-- enter '7' to get information about library.");
             System.out.println("-- enter '8' to get information about current user-client.");
             System.out.println("-- enter '9' to change user-client.");
             int k;
             try {
-                k = scanner.nextLine().charAt(0) - 48;
+                k = scanner.next().charAt(0) - 48;
                 switch (k) {
                     case 0 -> {
                         System.out.println("System exit successfully!");
@@ -73,6 +74,12 @@ public class Main {
                         }
                         System.out.println();
                     }
+                    case 7 -> {
+                        System.out.println("Library:");
+                        System.out.println("Name: " + library.getName());
+                        System.out.println("Location: " + library.getLocation());
+                        System.out.println();
+                    }
                     case 8 -> {
                         System.out.println("Current user information:");
                         currentClient.printInfo();
@@ -98,7 +105,7 @@ public class Main {
                         System.out.println();
                     }
 
-                    default -> System.out.println("Unknown command!" + k);
+                    default -> System.out.println("Unknown command!");
                 }
             } catch (Exception e) {
                 System.out.println("Incorrect Input!");
